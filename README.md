@@ -122,7 +122,7 @@ public:
 
 ```
 
-### Part 2. -- Implementation your class (.cpp) 
+### Part 2. -- Implement your class (.cpp) 
 
 Now that you have updated your header file (.hpp), take a look at the SFString.cpp file. You'll notice that is almost completely empty, as shown below.  You need to implement all of the SFString class functionality in your .cpp file. 
 
