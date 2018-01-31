@@ -206,7 +206,7 @@ void runMemoryTests() {
 
 Your submission will be graded along four dimensions:
 
-1. Suitability (40%)
+1. Suitability and correctness (40%)
 2. Memory efficiency (25%)
 3. Performance (25%)
 4. Style and readability (10%)
