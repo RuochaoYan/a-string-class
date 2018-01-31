@@ -71,7 +71,7 @@ Not too bad. One problem, though, is that the class also needs to support standa
   SFString&    operator=(const char* aString);
 
 ```
-Below, is an updated code sample that indicates which methods you need to add to fully support const char*:
+Below, is an updated sample that indicates which methods you need to add to fully support const char*. Everywhere you see a comment that starts with "ADD...", you need to add an addition interface as indicated.
 
 ```
 
