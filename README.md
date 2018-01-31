@@ -69,5 +69,53 @@ Not too bad. One problem, though, is that the class also needs to support standa
   SFString&    operator=(const char* aString);
 
 ```
+Below, is an updated code sample that indicates which methods you need to add to fully support const char*:
 
+```
+
+class SFString {
+public:
+  
+  SFString();
+  SFString(const SFString& aString);
+  //ADD a conversion constructor that supports const char*...
+  
+  SFString&    operator=(const SFString& aString);
+	//ADD "operator=" that supports const char*...
+  
+  operator const char*() const;
+  char         operator[](int pos) const;
+
+  SFString&    operator+=(const SFString &aString);
+	//ADD "operator+=" that supports const char*...
+  
+  bool         operator<(const SFString &aString);
+	//ADD "operator<" that supports const char*...
+  
+  bool         operator<=(const SFString &aString);
+	//ADD "operator<=" that supports const char*...
+  
+  bool         operator>(const SFString &aString);
+	//ADD "operator>" that supports const char*...
+  
+  bool         operator>=(const SFString &aString);
+	//ADD "operator>=" that supports const char*...
+  
+  bool         operator==(const SFString &aString);
+	//ADD "operator==" that supports const char*...
+  
+  bool         operator!=(const SFString &aString);
+	//ADD "operator!=" that supports const char*...
+  
+  SFString&    insert(int aPos, const SFString &aString);
+	//ADD "insert()" method that supports const char*...
+  
+  SFString&    replace(size_t pos, size_t len, const SFString &aString);
+	//ADD "replace()" method that supports const char*...
+  
+  int          find(const SFString &aString, size_t offset=0);
+	//ADD "find()" method that supports const char*...
+};
+
+```
 
