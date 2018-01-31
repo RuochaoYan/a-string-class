@@ -23,7 +23,7 @@ Sadly, no amount of arguing about re-inventing the wheel would stop Morris and C
 
 ## Assignment Details
 
-In this assignment, you are going to build a string class. String classes provide an object-oriented solution to managing character buffers in an application. Most modern applications have to manage strings to some degre, but some applications, like word-processors and browsers, string management can have a tremendous impact on performance and memory management.
+In this assignment, you are going to build a string class. String classes provide an object-oriented solution to managing character buffers in an application. Most modern applications have to manage strings to some degree, but for some applications, like word-processors and browsers, string management can have a tremendous impact on performance and memory management.
 
 ### Class interface (incomplete)
 
@@ -225,15 +225,15 @@ Your code should be formatted to be easily readable by anyone with more than 1 y
 - Partition your logic into class methods as needed to maintain clarity
 - Document your code with comments that clearly indicate what you’re doing at a high level
 
-Unsure if you’ve got it right?  Take a look at sample code in your textbook. Look at C++ code examples from github. Ask a friend to take a look. Most of all, use your judgement to estimate whether others can make sense of what you’re doing.  We’re being intentionally vague, so you get to learn what works and what doesn’t. 
+Unsure if you’ve got it right?  Take a look at sample code in your textbook. Look at C++ code examples from GitHub. Ask a friend to take a look. Most of all, use your judgement to estimate whether others can make sense of what you’re doing.  We’re being intentionally vague, so you get to learn what works and what doesn’t. 
 
 ## Submitting Your Work
 
 You’ll recall that your work is due by 11:15pm (PST).  We strongly recommend that you aim for 6p (PST) as to avoid the last minute mishaps that frequently occur when panic related to an impending deliverable begins, and we all tend to make silly mistakes.  
 
-As we’ve said in lecture, you will turn your work in using github. Github is an online code repository.  Managing code can be very confusing, but github makes the process fairly easy. And the way we’re going to handle code in this class is even simpler still.  More on that later.
+As we’ve said in lecture, you will turn your work in using GitHub. GitHub is an online code repository.  Managing code can be very confusing, but GitHub makes the process fairly easy. And the way we’re going to handle code in this class is even simpler still.  More on that later.
 
-With that said, please understand that when you submit your work via github, your changes are automatically timestamped. Meta data in the code repository makes it plainly obvious to humans and computers alike when your submission arrived.  This is worth mentioning, because the github timestamps on your submissions will be used to to arbitrate whether you turned your work in on time or not. 
+With that said, please understand that when you submit your work via GitHub, your changes are automatically timestamped. Meta data in the code repository makes it plainly obvious to humans and computers alike when your submission arrived.  This is worth mentioning, because the github timestamps on your submissions will be used to to arbitrate whether you turned your work in on time or not. 
 
 Your homework will usually be auto-graded by “Vlad the Compiler” — otherwise known as our software-based auto-grader.  Vlad can be a bit harsh when it comes to scoring homework (see the syllabus), but he does have a somewhat casual relationship with deadlines.  During Grad-school, Vlad often spent spring-break in Cabo-San-Lucas where he learned to enjoy siestas.  Most nights, Vlad awakens from his last-afternoon siesta around midnight, to begin the process of grading your assignments. In other words, you can generally count on a 45 minute grace period for turning in your work. We strongly suggest that you do not try his patience.
 
