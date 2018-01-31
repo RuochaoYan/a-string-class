@@ -253,6 +253,6 @@ NOTE: It is **YOUR RESPONSIBILITY** to ensure your solution can be built correct
 
 ### Getting Help
 
-You can talk with your peers about this problem. You can ask your instructors about this too. But you cannot use any other code for reference in solving these problems. If you're really stuck with an algorithm, come talk to us.
+You can talk with your peers about this problem. You can ask your instructors about this too. But you cannot use any other code for reference in solving these problems. If you're really stuck with an algorithm, join us in the programming dojo to get unblocked. It's really essential that you think about this challenge and work to solve it yourself.
 
 
