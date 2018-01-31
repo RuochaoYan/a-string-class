@@ -31,9 +31,11 @@ public:
   bool         operator==(const SFString &aString);
   bool         operator!=(const SFString &aString);
   
-  SFString&    insert(int aPos, const SFString &aString);
-  SFString&    insert(int aPos, const char aChar);
+  SFString&    insert(size_t aPos, const SFString &aString);
+  SFString&    insert(size_t aPos, const char aChar);
   
+  SFString&    erase(size_t aPos, size_t aLength);
+
   SFString&    replace(size_t pos, size_t len, const SFString &aString);
   
   int          find(const SFString &aString, size_t offset=0);
