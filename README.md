@@ -113,7 +113,7 @@ public:
   SFString&    insert(size_t aPos, const SFString &aString);
 		//ADD "insert()" method that supports const char*...
 		
-  SFString&    erases(size_t pos, size_t len);  
+  SFString&    erase(size_t pos, size_t len);  
 		//ADD "earse()" method that supports const char*...
 		  
   SFString&    replace(size_t pos, size_t len, const SFString &aString);
