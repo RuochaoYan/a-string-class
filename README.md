@@ -163,7 +163,7 @@ Super easy, right?  Ok, there's just one thing to note. Our basic string testing
 
 ### Part 4. -- Efficient Memory Management and Performance
 
-You see -- building a string class isn't all that hard. But making it run fast, and also be very efficient with memory takes considerably more effort. In order to test your memory utilization and performance, you must write your own tests. To help you, we've added to extra functions in the SFStringTester class:
+You see -- building a basic string class isn't all that hard. But making it run fast, and also be very efficient with memory takes considerably more effort. In order to test your memory utilization and performance, you must write your own tests. To help you, we've added to extra functions in the SFStringTester class:
 
 ```
 //run your own performance stress-tests here...
