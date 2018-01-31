@@ -147,4 +147,14 @@ public:
   static int runTests();
 };
 ```
-asdf
+
+The self-testing harness is used in the main.cpp to initiate testing of your class, like this:
+
+```
+#include "SFStringTester.hpp"
+
+int main(int argc, const char * argv[]) {
+  SFStringTester::runTests();
+  return 0;
+}
+```
