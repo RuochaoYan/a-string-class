@@ -268,8 +268,8 @@ Supporting operator+ may force you to learn a powerful new idiom in C++ on your 
 Let's take a look at how operator+ is used:
 
 ```
-const char* thePrefix = " there";
-SFString theSuffic("hello");
+const char* thePrefix = "hello";
+SFString theSuffic(" hello");
 SFString s3 = thePrefix + theSuffix;  //invoke operator+
 ```
 
