@@ -63,7 +63,7 @@ public:
 
 ```
 
-### Part 1. -- Update and SFString class declaration in your .hpp file
+### Part 1. -- Update the SFString class declaration in your .hpp file
 
 Not too bad. One problem, though, is that the class also needs to support standard `char*` strings as well. So in addition to the methods we have provided, you need to add versions for most of these methods so users can use standard c-strings. For example, you will add a conversion constructor that accepts a const char*, like this:
 
