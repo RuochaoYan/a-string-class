@@ -137,6 +137,10 @@ Now that you have updated your header file (.hpp), take a look at the SFString.c
 #include "SFString.hpp"
 
 ```
+
+**NOTE:** If you try to build (or make) this project, you'll find that you get a large number of errors and warnings.  That is to be expected.  The reason, is that we have provided a *very* incomplete set of files. It's up to you to complete the files (.hpp and .cpp) so that they compile (and obviously work).
+
+
 ### Part 3. -- Testing your SFString class implementation 
 
 No self-respecting engineer would consider the job done unless they had also provided a complete set of tests to ensure that the solution worked as designed. Well, we've already provided a basic testing harness for you, contained in the SFStringTester files:
