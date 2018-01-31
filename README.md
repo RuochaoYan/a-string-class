@@ -283,7 +283,7 @@ SFString operator+(const SFString& lhs, const char* rhs);
 SFString operator+(const char* lhs, const SFString& rhs);
 ```
 
-If you choose to do this extra credit work, you must also enable the testing code. Open the SFStringTester.cpp. Go to the bottom of the file in the runTests() method, and uncomment this line. This is the only way we will know that you are trying to earn extra credit!
+If you choose to do this extra credit work, you must also enable the testing code so we know you are trying for the extra credit. Open the SFStringTester.cpp. Go to the bottom of the file in the runTests() method, and uncomment this line:
 
 ```
   //theErrors+=runExtraCreditTests();
