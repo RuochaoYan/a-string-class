@@ -54,7 +54,7 @@ public:
   
   SFString&    insert(size_t aPos, const SFString &aString);
   SFString&    insert(size_t aPos, const char aChar);    
-  SFString&    delete(size_t pos, size_t len);  
+  SFString&    erase(size_t pos, size_t len);  
   SFString&    replace(size_t pos, size_t len, const SFString &aString);
   
   int          find(const SFString &aString, size_t offset=0);
@@ -113,8 +113,8 @@ public:
   SFString&    insert(size_t aPos, const SFString &aString);
 		//ADD "insert()" method that supports const char*...
 		
-  SFString&    delete(size_t pos, size_t len);  
-		//ADD "delete()" method that supports const char*...
+  SFString&    erases(size_t pos, size_t len);  
+		//ADD "earse()" method that supports const char*...
 		  
   SFString&    replace(size_t pos, size_t len, const SFString &aString);
 		//ADD "replace()" method that supports const char*...
@@ -257,5 +257,34 @@ NOTE: It is **YOUR RESPONSIBILITY** to ensure your solution can be built correct
 ### Getting Help
 
 You can talk with your peers about this problem. You can ask your instructors about this too. But you cannot use any other code for reference in solving these problems. If you're really stuck with an algorithm, join us in the programming dojo to get unblocked. It's really essential that you think about this challenge and work to solve it yourself.
+
+## EXTRA Credit!
+
+If you're feeling ambitious, you can earn extra credit if you complete this additional challenge.
+
+### Adding support for operator+ 
+
+Supporting operator+ may force you to learn a powerful new idiom in C++ on your own, before we discuss it in class. 
+Let's take a look at how operator+ is used:
+
+```
+const char* thePrefix = " there";
+SFString theSuffic("hello");
+SFString s3 = thePrefix + theSuffix;  //invoke operator+
+```
+
+In our sample code, we are concatenating a standard CString with an SFString. What makes this curious, is that CStrings don't offer methods of their own. Only objects (and sometimes classes) can do that. So how does this work? The secret is revealed when you realize that these are not members of a class, but rather, standalone functions. 
+
+If you're up for the challenge, you can implement these methods:
+
+```
+SFString operator+(const SFString& lhs, const SFString& rhs);
+SFString operator+(const SFString& lhs, const char* rhs);
+SFString operator+(const char* lhs, const SFString& rhs);
+```
+
+
+
+
 
 
