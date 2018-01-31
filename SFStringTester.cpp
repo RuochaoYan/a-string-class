@@ -2,8 +2,6 @@
 //  SFStringTester.cpp
 //  class_test
 //
-//  Created by rick gessner on 1/29/18.
-//  Copyright © 2018 rick gessner. All rights reserved.
 //
 
 #include "SFStringTester.hpp"
@@ -29,6 +27,20 @@ int compare(int anArg1, int anArg2,const char* aMessage) {
     return 1;
   }
   return 0;
+}
+
+//run your own performance stress-tests here...
+void runPerformanceTests() {
+  
+  //STUDENTS: ADD YOUR CODE HERE...
+  
+}
+
+//run your own performance stress-tests here...
+void runMemoryTests() {
+  
+  //STUDENTS: ADD YOUR CODE HERE...
+  
 }
 
 //compare construction operations against std::string...
@@ -196,6 +208,9 @@ int SFStringTester::runTests() {
   theErrors+=runInsertionTests();
   theErrors+=runReplacementTests();
   theErrors+=runFindTests();
+  
+  runPerformanceTests();
+  runMemoryTests();
   
   std::cout << theErrors << " errors found -- " << (theErrors ? "too bad!" : "woot!") << std::endl;
   return theErrors;

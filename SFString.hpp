@@ -4,9 +4,6 @@
 //
 //  STUDENTS: This interface is incomplete; refer to the assignment readme for detailed instructions!
 //
-//  Created by rick gessner on 1/29/18.
-//  Copyright © 2018 rick gessner. All rights reserved.
-//
 
 #ifndef SFString_hpp
 #define SFString_hpp
@@ -28,15 +25,10 @@ public:
   SFString&    operator+=(const SFString &aString);
   
   bool         operator<(const SFString &aString);
-  
   bool         operator<=(const SFString &aString);
-  
   bool         operator>(const SFString &aString);
-  
   bool         operator>=(const SFString &aString);
-  
   bool         operator==(const SFString &aString);
-  
   bool         operator!=(const SFString &aString);
   
   SFString&    insert(int aPos, const SFString &aString);
@@ -45,8 +37,6 @@ public:
   SFString&    replace(size_t pos, size_t len, const SFString &aString);
   
   int          find(const SFString &aString, size_t offset=0);
-  
-protected:
   
 };
 

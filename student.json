@@ -1,6 +1,7 @@
 {
-  "name" : "Your Name",
-	"pid"  : "Your StudentId",
-	"email": "Your Email",
-	"os"   : "Your OS [windows|mac|linux]"
+  "name"  : "Your Name",
+  "pid"   : "Your StudentId",
+  "email" : "Your Email",
+  "os"    : "windows|mac|linux",
+  "course": "ece180a"
 }
