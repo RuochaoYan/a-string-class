@@ -42,5 +42,7 @@ public:
   
 };
 
+
 #endif /* SFString_hpp */
+
 
