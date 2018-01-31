@@ -1,5 +1,5 @@
 # ECE-180 Assignment2
-Due: Jan 30, 11:15p (PST)
+Due: Feb 11, 11:15p (PST)
 
 ## Preface
 
