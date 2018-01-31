@@ -52,9 +52,9 @@ public:
   bool         operator==(const SFString &aString);
   bool         operator!=(const SFString &aString);
   
-  SFString&    insert(int aPos, const SFString &aString);
-  SFString&    insert(int aPos, const char aChar);
-  
+  SFString&    insert(size_t aPos, const SFString &aString);
+  SFString&    insert(size_t aPos, const char aChar);    
+  SFString&    delete(size_t pos, size_t len);  
   SFString&    replace(size_t pos, size_t len, const SFString &aString);
   
   int          find(const SFString &aString, size_t offset=0);
@@ -110,9 +110,12 @@ public:
   bool         operator!=(const SFString &aString);
 		//ADD "operator!=" that supports const char*...
   
-  SFString&    insert(int aPos, const SFString &aString);
+  SFString&    insert(size_t aPos, const SFString &aString);
 		//ADD "insert()" method that supports const char*...
-  
+		
+  SFString&    delete(size_t pos, size_t len);  
+		//ADD "delete()" method that supports const char*...
+		  
   SFString&    replace(size_t pos, size_t len, const SFString &aString);
 		//ADD "replace()" method that supports const char*...
   
