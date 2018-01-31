@@ -195,3 +195,9 @@ Your submission will be graded along four dimensions:
 3. Performance (25%)
 4. Style and readability (10%)
 
+As we explained earlier, in addition to passing the basic string tests (SFStringTest), your code will be measured for memory efficiency and performance. Our grading test harness will generate 1000's of strings and measure your memory usage. So make sure you test performance and memory efficiency carefully.
+
+## Submitting Your Work
+
+Your submission will be graded along four dimensions:
+
