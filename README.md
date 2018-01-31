@@ -124,7 +124,7 @@ public:
 
 ### Part 2. -- Update the given class interface 
 
-Now that you have updated your header file (.hpp), take a look at the SFString.cpp file. You'll notice that is almost completely empty, as shown below.  You need to implement the SFString class functionality in your .cpp file. 
+Now that you have updated your header file (.hpp), take a look at the SFString.cpp file. You'll notice that is almost completely empty, as shown below.  You need to implement all of the SFString class functionality in your .cpp file. 
 
 ```
 //
@@ -140,3 +140,14 @@ Now that you have updated your header file (.hpp), take a look at the SFString.c
 #include "SFString.hpp"
 
 ```
+### Part 3. -- Testing your SFString class implementation 
+
+No self-respecting engineer would consider the job done unless s/he provided a complete set of tests to ensure that the solution worked as designed. Well, we've already provided a class testing harness for you, contained in the SFStringTester files:
+
+```
+class SFStringTester {
+public:
+  static int runTests();
+};
+```
+asdf
