@@ -227,8 +227,6 @@ Your code should be formatted to be easily readable by anyone with more than 1 y
 - Partition your logic into class methods as needed to maintain clarity
 - Document your code with comments that clearly indicate what you’re doing at a high level
 
-Unsure if you’ve got it right?  Take a look at sample code in your textbook. Look at C++ code examples from GitHub. Ask a friend to take a look. Most of all, use your judgement to estimate whether others can make sense of what you’re doing.  We’re being intentionally vague, so you get to learn what works and what doesn’t. 
-
 ## Submitting Your Work
 
 You’ll recall that your work is due by 11:15pm (PST).  We strongly recommend that you aim for 6p (PST) as to avoid the last minute mishaps that frequently occur when panic related to an impending deliverable begins, and we all tend to make silly mistakes.  
