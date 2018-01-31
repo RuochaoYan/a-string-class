@@ -3,7 +3,7 @@ Due: Feb 11, 11:15p (PST)
 
 ## Preface
 
-We've spent the last few weeks covering the intricacies of C++ classes in considerable detail. Now it's your turn to create your first moderately complex class.
+We've spent the last few weeks covering the intricacies of C++ classes in considerable detail. Now it's your turn to create your first intermediate stand-alone class.
 
 ## Welcome to JobCo!
 
