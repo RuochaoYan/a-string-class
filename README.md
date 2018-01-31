@@ -139,7 +139,7 @@ Now that you have updated your header file (.hpp), take a look at the SFString.c
 ```
 ### Part 3. -- Testing your SFString class implementation 
 
-No self-respecting engineer would consider the job done unless s/he provided a complete set of tests to ensure that the solution worked as designed. Well, we've already provided a class testing harness for you, contained in the SFStringTester files:
+No self-respecting engineer would consider the job done unless they had also provided a complete set of tests to ensure that the solution worked as designed. Well, we've already provided a basic testing harness for you, contained in the SFStringTester files:
 
 ```
 class SFStringTester {
