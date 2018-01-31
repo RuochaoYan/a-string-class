@@ -133,9 +133,6 @@ Now that you have updated your header file (.hpp), take a look at the SFString.c
 //
 //  STUDENT: Your job here is to implement the string class functionality in this file...
 //
-//  Created by rick gessner on 1/29/18.
-//  Copyright © 2018 rick gessner. All rights reserved.
-//
 
 #include "SFString.hpp"
 
