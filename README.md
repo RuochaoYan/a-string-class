@@ -25,7 +25,7 @@ Sadly, no amount of arguing about re-inventing the wheel would stop Morris and C
 
 In this assignment, you are going to build a string class. String classes provide an object-oriented solution to managing character buffers in an application. Most modern applications have to manage strings to some degre, but some applications, like word-processors and browsers, string management can have a tremendous impact on performance and memory management.
 
-### Class interface
+### Class interface (incomplete)
 
 We have provided a starting point for your string class, in the SFString.hpp file.  It looks like this:
 
@@ -62,6 +62,8 @@ public:
 };
 
 ```
+
+### Update Class interface (incomplete)
 
 Not too bad. One problem, though, is that the class also needs to support standard `char*` strings as well. So in addition to the methods we have provided, you need to add versions for most of these methods so users can use standard c-strings. For example, you will add a conversion constructor that accepts a const char*, like this:
 
