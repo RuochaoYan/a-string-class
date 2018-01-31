@@ -269,7 +269,7 @@ Let's take a look at how operator+ is used:
 
 ```
 const char* thePrefix = "hello";
-SFString theSuffic(" hello");
+SFString theSuffix(" hello");
 SFString s3 = thePrefix + theSuffix;  //invoke operator+
 ```
 
