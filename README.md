@@ -21,7 +21,7 @@ Just before the end of the standup meeting, Morris (a performance engineer) rais
 
 Sadly, no amount of arguing about re-inventing the wheel would stop Morris and Chloe from building their own string class. Welcome to Silicon Valley. :)
 
-## Assignment Overview
+## Assignment Details
 
 In this assignment, you are going to build a string class. String classes provide an object-oriented solution to managing character buffers in an application. Most modern applications have to manage strings to some degre, but some applications, like word-processors and browsers, string management can have a tremendous impact on performance and memory management.
 
@@ -63,7 +63,7 @@ public:
 
 ```
 
-### Update Class interface (incomplete)
+### Part 1. -- Update the given class interface in the SFString.hpp file
 
 Not too bad. One problem, though, is that the class also needs to support standard `char*` strings as well. So in addition to the methods we have provided, you need to add versions for most of these methods so users can use standard c-strings. For example, you will add a conversion constructor that accepts a const char*, like this:
 
@@ -71,7 +71,7 @@ Not too bad. One problem, though, is that the class also needs to support standa
   SFString&    operator=(const char* aString);
 
 ```
-Below, is an updated sample that indicates which methods you need to add to fully support const char*. Everywhere you see a comment that starts with "ADD...", you need to add an addition interface as indicated.
+Below, is an updated sample that indicates which methods you need to add to fully support const char*. Everywhere you see a comment that starts with "ADD...", you need to declare an additional member (method or operator) as indicated:
 
 ```
 
@@ -121,3 +121,21 @@ public:
 
 ```
 
+### Part 2. -- Update the given class interface 
+
+Now that you have updated your header file (.hpp), take a look at the SFString.cpp file. You'll notice that is almost completely empty, as shown below.  You need to implement the SFString class functionality in your .cpp file. 
+
+```
+//
+//  SFString.cpp
+//  class_test
+//
+//  STUDENT: Your job here is to implement the string class functionality in this file...
+//
+//  Created by rick gessner on 1/29/18.
+//  Copyright © 2018 rick gessner. All rights reserved.
+//
+
+#include "SFString.hpp"
+
+```
