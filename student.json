@@ -1,0 +1,6 @@
+{
+  "name" : "Your Name",
+	"pid"  : "Your StudentId",
+	"email": "Your Email",
+	"os"   : "Your OS [windows|mac|linux]"
+}
