@@ -165,7 +165,7 @@ int main(int argc, const char * argv[]) {
 }
 ```
 
-Super easy, right?  Ok, there's just one thing to note. Our basic string testing class does a _pretty good_ job of testing your class, but you'll want to add some tests of your own.
+Super easy, right? When the SFStringTester class runs your tests, it will output the results to `cout`. The test output makes it really easy to see which methods are working and which are not. Ok, there's just one thing to note. Our basic string testing class does a _pretty good_ job of testing your class, but you'll want to add some tests of your own.
 
 ### Part 4. -- Fill out the student.json file
 
