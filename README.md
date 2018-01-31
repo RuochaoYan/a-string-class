@@ -165,7 +165,11 @@ int main(int argc, const char * argv[]) {
 
 Super easy, right?  Ok, there's just one thing to note. Our basic string testing class does a _pretty good_ job of testing your class, but you'll want to add some tests of your own.
 
-### Part 4. -- Efficient Memory Management and Performance
+### Part 4. -- Fill out the student.json file
+
+Please make sure that you fill out your student.json file. We need your name, PID, email and the operating system you used for your work. For the operating system attribute, please specify "windows", "mac" or "linux". 
+
+### Part 5. -- Efficient Memory Management and Performance
 
 See? Building a basic string class isn't all that hard. But making it run fast, and ensuring that uses memory efficiently takes considerably more effort. Finding the right balance between memory usage and performance can be a challenge.  In order to test your memory utilization and performance, you must write your own tests. To help you, we've added two extra functions in the SFStringTester class:
 
