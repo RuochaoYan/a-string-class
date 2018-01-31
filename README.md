@@ -52,13 +52,12 @@ public:
   bool         operator==(const SFString &aString);
   bool         operator!=(const SFString &aString);
   
-  SFString&    insert(size_t aPos, const SFString &aString);
-  SFString&    insert(size_t aPos, const char aChar);    
-  SFString&    erase(size_t pos, size_t len);  
-  SFString&    replace(size_t pos, size_t len, const SFString &aString);
-  
   int          find(const SFString &aString, size_t offset=0);
   
+  SFString&    insert(size_t aPos, const SFString &aString);
+  SFString&    insert(size_t aPos, const char aChar);    
+  SFString&    replace(size_t pos, size_t len, const SFString &aString);   
+  SFString&    erase(size_t pos, size_t len);  
 };
 
 ```
@@ -72,7 +71,7 @@ In addition to the methods we have already provided for you, you need to add ver
 ```
   SFString(const char* aString);
 ```
-Below, is an updated sample that indicates which methods you need to add to fully support const char*. Everywhere you see a comment that starts with "ADD...", you need to declare an additional member (method or operator) as indicated:
+Below, is an updated sample that indicates which methods you need to add to fully support const char*. Everywhere you see a comment that starts with "ADD..." below, you need to declare an additional member (method or operator) as indicated:
 
 ```
 
@@ -109,18 +108,18 @@ public:
   
   bool         operator!=(const SFString &aString);
 		//ADD "operator!=" that supports const char*...
-  
+
+  int          find(const SFString &aString, size_t offset=0);
+		//ADD "find()" method that supports const char*...
+
   SFString&    insert(size_t aPos, const SFString &aString);
 		//ADD "insert()" method that supports const char*...
 		
-  SFString&    erase(size_t pos, size_t len);  
-		//ADD "erase()" method that supports const char*...
-		  
   SFString&    replace(size_t pos, size_t len, const SFString &aString);
 		//ADD "replace()" method that supports const char*...
-  
-  int          find(const SFString &aString, size_t offset=0);
-		//ADD "find()" method that supports const char*...
+
+  SFString&    erase(size_t pos, size_t len); 
+		  
 };
 
 ```
