@@ -3,7 +3,7 @@ Due: Jan 30, 11:15p (PST)
 
 ## Preface
 
-We've spent the last few weeks covering the intricacies of C++ classes in considerable detail. Now it's your turn to create your first meaningful class.
+We've spent the last few weeks covering the intricacies of C++ classes in considerable detail. Now it's your turn to create your first moderately complex class.
 
 ## Welcome to JobCo!
 
@@ -22,6 +22,10 @@ Just before the end of the standup meeting, Morris (a performance engineer) rais
 Sadly, no amount of arguing about re-inventing the wheel would stop Morris and Chloe from building their own string class. Welcome to Silicon Valley. :)
 
 ## Your Assignment
+
+In this assignment, you are going to build a string class. String classes provide an object-oriented solution to managing character buffers in an application. Most modern applications have to manage strings to some degre, but some applications, like word-processors and browsers, string management can have a tremendous impact on performance and memory management.
+
+
 
 
 
