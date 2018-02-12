@@ -13,33 +13,59 @@
 class SFString {
 public:
   
-  SFString();
-  SFString(const SFString& aString);
-  
-  SFString&    operator=(const SFString& aString);
-  
-  operator const char*() const;
-  
-  char         operator[](int pos) const;
+    SFString();
+    ~SFString();
+    SFString(const SFString& aString);
+    SFString(const char* aString);
 
-  SFString&    operator+=(const SFString &aString);
-  
-  bool         operator<(const SFString &aString);
-  bool         operator<=(const SFString &aString);
-  bool         operator>(const SFString &aString);
-  bool         operator>=(const SFString &aString);
-  bool         operator==(const SFString &aString);
-  bool         operator!=(const SFString &aString);
-  
-  SFString&    insert(size_t aPos, const SFString &aString);
-  SFString&    insert(size_t aPos, const char aChar);
-  
-  SFString&    erase(size_t aPos, size_t aLength);
+    SFString&    operator=(const SFString& aString);
+    SFString&    operator=(const char* aString);
 
-  SFString&    replace(size_t pos, size_t len, const SFString &aString);
-  
-  int          find(const SFString &aString, size_t offset=0);
-  
+    operator const char*() const;
+
+    char         operator[](int pos) const;
+
+    SFString&    operator+=(const SFString &aString);
+    SFString&    operator+=(const char* &aString);
+
+    bool         operator<(const SFString &aString);
+    bool         operator<(const char* &aString);
+    
+    bool         operator<=(const SFString &aString);
+    bool         operator<=(const char* &aString);
+    
+    bool         operator>(const SFString &aString);
+    bool         operator>(const char* &aString);
+
+    bool         operator>=(const SFString &aString);
+    bool         operator>=(const char* &aString);
+    
+    bool         operator==(const SFString &aString);
+    bool         operator==(const char* &aString);
+
+    bool         operator!=(const SFString &aString);
+    bool         operator!=(const char* &aString);
+
+
+    SFString&    insert(size_t aPos, const SFString &aString);
+    SFString&    insert(size_t aPos, const char* &aString);
+
+    SFString&    insert(size_t aPos, const char aChar);
+
+    SFString&    erase(size_t aPos, size_t aLength);
+
+    SFString&    replace(size_t pos, size_t len, const SFString &aString);
+    SFString&    replace(size_t pos, size_t len, const char* &aString);
+
+
+    int          find(const SFString &aString, size_t offset=0);
+    int          find(const char* &aString, size_t offset=0);
+
+    friend SFString operator+(const SFString& lhs, const SFString& rhs);
+    friend SFString operator+(const SFString& lhs, const char* rhs);
+    friend SFString operator+(const char* lhs, const SFString& rhs);
+private:
+    char* str;
 };
 
 
