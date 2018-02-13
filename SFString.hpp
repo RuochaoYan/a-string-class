@@ -64,8 +64,11 @@ public:
     friend SFString operator+(const SFString& lhs, const SFString& rhs);
     friend SFString operator+(const SFString& lhs, const char* rhs);
     friend SFString operator+(const char* lhs, const SFString& rhs);
+    
+    static int maxMemory;
 private:
     char* str;
+    size_t size;
 };
 
 

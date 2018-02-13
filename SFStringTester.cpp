@@ -7,6 +7,8 @@
 #include "SFString.hpp"
 #include <string>
 #include <iostream>
+#include <vector>
+#include <chrono>
 
 //compare results and return error status (side-effect output to terminal)...
 int compare(const SFString& str1, const std::string &str2, const char* aMessage) {
@@ -34,17 +36,139 @@ int compare(int anArg1, int anArg2,const char* aMessage) {
     return 0;
 }
 
+/* ----- generate a random string -------- */
+void gen_random(char *s, const int len) {
+    static const char alphanum[] =
+    " 0123456789"
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    "abcdefghijklmnopqrstuvwxyz";
+    
+    for (int i = 0; i < len; ++i) {
+        s[i] = alphanum[rand() % (sizeof(alphanum) - 1)];
+    }
+    
+    s[len] = 0;
+}
+
 //run your own performance stress-tests here...
+void performanceOfInsert(std::vector<SFString> sf1s, std::vector<SFString> sf2s, std::vector<std::string> s1s, std::vector<std::string>s2s){
+    // SFString
+    auto t1 = std::chrono::high_resolution_clock::now();
+    for(int i = 1; i < 1000000; i++){
+        SFString sf1 = sf1s[i];
+        SFString sf2 = sf2s[i];
+        sf1.insert(20,sf2);
+//                std::string s1 = s1s[i];
+//                std::string s2 = s2s[i];
+//                s1.insert(20,s2);
+//                compare(sf1,s1,"insert(int, const string&)");
+    }
+    auto t2 = std::chrono::high_resolution_clock::now();
+    std::cout << "Performance of SFString's insert function: "
+    << std::chrono::duration_cast<std::chrono::milliseconds>(t2-t1).count()
+    << " milliseconds\n";
+    
+    // string
+    t1 = std::chrono::high_resolution_clock::now();
+    for(int i = 1; i < 1000000; i++){
+        std::string s1 = s1s[i];
+        std::string s2 = s2s[i];
+        s1.insert(20,s2);
+        //compare(sf1,s1,"insert(int, const string&)");
+    }
+    t2 = std::chrono::high_resolution_clock::now();
+    std::cout << "Performance of std::string's insert function: "
+    << std::chrono::duration_cast<std::chrono::milliseconds>(t2-t1).count()
+    << " milliseconds\n";
+}
+void performanceOfReplace(std::vector<SFString> sf1s, std::vector<SFString> sf2s, std::vector<std::string> s1s, std::vector<std::string>s2s){
+    // SFString
+    auto t1 = std::chrono::high_resolution_clock::now();
+    for(int i = 1; i < 1000000; i++){
+        SFString sf1 = sf1s[i];
+        SFString sf2 = sf2s[i];
+        sf1.replace(20,20,sf2);
+        //                std::string s1 = s1s[i];
+        //                std::string s2 = s2s[i];
+        //                s1.insert(20,s2);
+        //                compare(sf1,s1,"insert(int, const string&)");
+    }
+    auto t2 = std::chrono::high_resolution_clock::now();
+    std::cout << "Performance of SFString's replace function: "
+    << std::chrono::duration_cast<std::chrono::milliseconds>(t2-t1).count()
+    << " milliseconds\n";
+    
+    // string
+    t1 = std::chrono::high_resolution_clock::now();
+    for(int i = 1; i < 1000000; i++){
+        std::string s1 = s1s[i];
+        std::string s2 = s2s[i];
+        s1.replace(20,20,s2);
+        //compare(sf1,s1,"insert(int, const string&)");
+    }
+    t2 = std::chrono::high_resolution_clock::now();
+    std::cout << "Performance of std::string's replace function: "
+    << std::chrono::duration_cast<std::chrono::milliseconds>(t2-t1).count()
+    << " milliseconds\n";
+}
+void performanceOfFind(std::vector<SFString> sf1s, std::vector<SFString> sf2s, std::vector<std::string> s1s, std::vector<std::string>s2s){
+    // SFString
+    auto t1 = std::chrono::high_resolution_clock::now();
+    for(int i = 1; i < 1000000; i++){
+        SFString sf1 = sf1s[i];
+        SFString sf2 = sf2s[i];
+        sf1.find(sf2);
+    }
+    auto t2 = std::chrono::high_resolution_clock::now();
+    std::cout << "Performance of SFString's find function: "
+    << std::chrono::duration_cast<std::chrono::milliseconds>(t2-t1).count()
+    << " milliseconds\n";
+    // string
+    t1 = std::chrono::high_resolution_clock::now();
+    for(int i = 1; i < 1000000; i++){
+        std::string s1 = s1s[i];
+        std::string s2 = s2s[i];
+        s1.find(s2);
+    }
+    t2 = std::chrono::high_resolution_clock::now();
+    std::cout << "Performance of std::string's find function: "
+    << std::chrono::duration_cast<std::chrono::milliseconds>(t2-t1).count()
+    << " milliseconds\n";
+}
+
 void runPerformanceTests() {
-    
-    //STUDENTS: ADD YOUR CODE HERE...
-    
+    // generate 2000000 strings respectively for SFString and String
+    // half of them with size 100, and the other half with size 10
+    std::vector<SFString> sf1s, sf2s;
+    std::vector<std::string> s1s, s2s;
+    for(int i = 0; i < 1000000; i++){
+        char* temp = new char[100];
+        gen_random(temp, 100);
+        sf1s.push_back(SFString(temp));
+        s1s.push_back(std::string(temp));
+        delete[] temp;
+    }
+    for(int i = 0; i < 1000000; i++){
+        char* temp = new char[10];
+        gen_random(temp, 10);
+        sf2s.push_back(SFString(temp));
+        s2s.push_back(std::string(temp));
+        delete[] temp;
+    }
+
+    performanceOfInsert(sf1s, sf2s, s1s, s2s);
+    performanceOfFind(sf1s, sf2s, s1s, s2s);
+    performanceOfFind(sf1s, sf2s, s1s, s2s);
+
 }
 
 //run your own performance stress-tests here...
 void runMemoryTests() {
     
-    //STUDENTS: ADD YOUR CODE HERE...
+    /*
+     I used the developer tool Instruments in Xcode and used the "allocations" profiling template to track the memory usage in the program and found some memory leak with the "leak" template and fixed them. I also overloaded global new and delete operators, added a static variable to track memory usage during the program.
+    */
+    std::cout << "maximum memory units used: " << SFString::maxMemory << std::endl;
     
 }
 
@@ -244,7 +368,6 @@ int runExtraCreditTests() {
     return theResult;
 }
 
-
 int SFStringTester::runTests() {
     
     int theErrors=0;
@@ -258,9 +381,8 @@ int SFStringTester::runTests() {
     theErrors+=runFindTests();
     
     theErrors+=runExtraCreditTests();
-    //runPerformanceTests();
-    //runMemoryTests();
-    
+    runPerformanceTests();
+    runMemoryTests();
     std::cout << theErrors << " errors found -- " << (theErrors ? "too bad!" : "woot!") << std::endl;
     return theErrors;
 }

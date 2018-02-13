@@ -8,17 +8,40 @@
 
 #include "SFString.hpp"
 #include <iostream>
+#include <cstring>
+
+int memory = 0;
+int SFString::maxMemory = 0;
+/* ------- overload new and delete -------- */
+void * operator new(size_t size)
+{
+    memory++;
+    SFString::maxMemory = SFString::maxMemory > memory ? SFString::maxMemory : memory;
+    void * p = malloc(size);
+    return p;
+}
+
+void operator delete(void * p)
+{
+    memory--;
+    free(p);
+}
+
+/* ------ constructor and destructor --------------- */
 SFString::SFString(){
+    size = 0;
     str = new char[1];
-    *str = '\0';
+    str[0] = 0;
 }
 SFString::~SFString(){
     if(str != nullptr)
-        delete[] str;
+    delete[] str;
 }
+
 /* -------------- copy constructor ----------------- */
 SFString::SFString(const SFString& aString){
-    str = new char[strlen(aString.str)+1];
+    size = aString.size;
+    str = new char[size+1];
     strcpy(str, aString.str);
 }
 
@@ -26,20 +49,24 @@ SFString::SFString(const SFString& aString){
 SFString::SFString(const char* aString){
     if(!aString){
         str = new char[1];
-        *str = '\0';
+        size = 0;
+        str[0] = 0;
     }
     else{
-        str = new char[strlen(aString)+1];
+        size = strlen(aString);
+        str = new char[size+1];
         strcpy(str, aString);
     }
 }
+
 
 /* -------------- assignment operations ----------------- */
 SFString&    SFString::operator=(const SFString& aString){
     if(this != &aString){
         if(str != nullptr)
             delete[] str; // avoid memory leak
-        str = new char[strlen(aString.str)+1];
+        size = aString.size;
+        str = new char[size+1];
         strcpy(str, aString.str);
     }
     return *this;
@@ -48,7 +75,8 @@ SFString&    SFString::operator=(const char* aString){
     if(this->str != aString){
         if(str != nullptr)
             delete[] str;
-        str = new char[strlen(aString)+1];
+        size = strlen(aString);
+        str = new char[size+1];
         strcpy(str, aString);
     }
     return *this;
@@ -56,7 +84,7 @@ SFString&    SFString::operator=(const char* aString){
 
 /* -------------- cast operation ----------------- */
 SFString::operator const char*() const{
-    return this->str;
+    return str;
 }
 
 /* -------------- get operation ----------------- */
@@ -69,20 +97,24 @@ char         SFString::operator[](int pos) const{
 /* -------------- concatenation operations ----------------- */
 SFString&    SFString::operator+=(const SFString &aString){
     char* newStr;
-    newStr = new char[strlen(str)+strlen(aString.str)+1];
+    size_t newSize = size + aString.size;
+    newStr = new char[newSize+1];
     strcpy(newStr, str);
+    strcpy(newStr+size, aString.str);
     delete[] str;
-    strcat(newStr, aString.str);
     str = newStr;
+    size = newSize;
     return *this;
 }
 SFString&    SFString::operator+=(const char* &aString){
     char* newStr;
-    newStr = new char[strlen(str)+strlen(aString)+1];
+    size_t newSize = size + strlen(aString);
+    newStr = new char[newSize+1];
     strcpy(newStr, str);
+    strcpy(newStr+size, aString);
     delete[] str;
-    strcat(newStr, aString);
     str = newStr;
+    size = newSize;
     return *this;
 }
 
@@ -116,7 +148,7 @@ bool         SFString::operator>=(const char* &aString){
 }
 
 bool         SFString::operator==(const SFString &aString){
-    if(strlen(str) != strlen(aString.str))
+    if(size != aString.size)
         return false;
     if(strcmp(str, aString.str) == 0)
         return true;
@@ -124,7 +156,7 @@ bool         SFString::operator==(const SFString &aString){
         return false;
 }
 bool         SFString::operator==(const char* &aString){
-    if(strlen(str) != strlen(aString))
+    if(size != strlen(aString))
         return false;
     if(strcmp(str, aString) == 0)
         return true;
@@ -142,20 +174,23 @@ bool         SFString::operator!=(const char* &aString){
 /* -------------- insert operations ----------------- */
 SFString&    SFString::insert(size_t aPos, const SFString &aString){
     char* newStr;
-    newStr = new char[strlen(str) + strlen(aString.str) + 1];
+    size += aString.size;
+    newStr = new char[size + 1];
     strncpy(newStr, str, aPos);
-    strcat(newStr, aString.str);
-    strcat(newStr, str+aPos);
+    strncpy(newStr+aPos, aString.str, aString.size);
+    strcpy(newStr+aPos+aString.size, str+aPos);
     delete[] str;
     str = newStr;
     return *this;
 }
 SFString&    SFString::insert(size_t aPos, const char* &aString){
     char* newStr;
-    newStr = new char[strlen(str) + strlen(aString) + 1];
+    size_t anotherSize = strlen(aString);
+    size += anotherSize;
+    newStr = new char[size + 1];
     strncpy(newStr, str, aPos);
-    strcat(newStr, aString);
-    strcat(newStr, str+aPos);
+    strncpy(newStr+aPos, aString, anotherSize);
+    strcpy(newStr+aPos+anotherSize, str+aPos);
     delete[] str;
     str = newStr;
     return *this;
@@ -163,10 +198,11 @@ SFString&    SFString::insert(size_t aPos, const char* &aString){
 
 SFString&    SFString::insert(size_t aPos, const char aChar){
     char* newStr;
-    newStr = new char[strlen(str) + 2];
+    size++;
+    newStr = new char[size + 1];
     strncpy(newStr, str, aPos);
     newStr[aPos] = aChar;
-    strcat(newStr, str+aPos);
+    strcpy(newStr+1, str+aPos);
     delete[] str;
     str = newStr;
     return *this;
@@ -175,15 +211,17 @@ SFString&    SFString::insert(size_t aPos, const char aChar){
 /* -------------- erase operation ----------------- */
 SFString&    SFString::erase(size_t aPos, size_t aLength){
     char* newStr;
-    if(aPos + aLength > strlen(str)){
-        newStr = new char[strlen(str) + 1];
+    if(aPos + aLength > size){
+        size = aPos;
+        newStr = new char[aPos];
         strncpy(newStr, str, aPos);
-        newStr[aPos] = '\0';
+        newStr[aPos] = 0;
     }
     else{
-        newStr = new char[strlen(str) - aLength + 1];
+        size = size - aLength;
+        newStr = new char[size + 1];
         strncpy(newStr, str, aPos);
-        strcat(newStr, str+aPos+aLength);
+        strcpy(newStr+aPos, str+aPos+aLength);
     }
     delete[] str;
     str = newStr;
@@ -193,20 +231,23 @@ SFString&    SFString::erase(size_t aPos, size_t aLength){
 /* -------------- replace operations ----------------- */
 SFString&    SFString::replace(size_t pos, size_t len, const SFString &aString){
     char* newStr;
-    newStr = new char[strlen(str) - len + strlen(aString.str) + 1];
+    size = size - len + aString.size;
+    newStr = new char[size + 1];
     strncpy(newStr, str, pos);
-    strcat(newStr, aString.str);
-    strcat(newStr, str + pos + len);
+    strncpy(newStr+pos, aString.str, aString.size);
+    strcpy(newStr+pos+aString.size, str + pos + len);
     delete[] str;
     str = newStr;
     return *this;
 }
 SFString&    SFString::replace(size_t pos, size_t len, const char* &aString){
     char* newStr;
-    newStr = new char[strlen(str) - len + strlen(aString) + 1];
+    size_t anotherSize = strlen(aString);
+    size = size - len + anotherSize;
+    newStr = new char[size + 1];
     strncpy(newStr, str, pos);
-    strcat(newStr, aString);
-    strcat(newStr, str + pos + len);
+    strncpy(newStr+pos, aString, anotherSize);
+    strcpy(newStr+pos+anotherSize, str + pos + len);
     delete[] str;
     str = newStr;
     return *this;
@@ -214,49 +255,37 @@ SFString&    SFString::replace(size_t pos, size_t len, const char* &aString){
 
 /* -------------- find operations ----------------- */
 int          SFString::find(const SFString &aString, size_t offset){
-    char* temp;
-    temp = new char[strlen(str) - offset + 1];
-    strcpy(temp, str + offset);
-    char* result = strstr(temp, aString.str);
-    size_t position = -1;
+    char* result = strstr(str+offset, aString.str);
     if(result){
-        position = result - temp;
+        return (int)(result - str);
     }
-    delete[] temp;
-    return (int)(position + offset);
+    else{
+        return -1;
+    }
 }
 int          SFString::find(const char* &aString, size_t offset){
-    char* temp;
-    temp = new char[strlen(str) - offset + 1];
-    strcpy(temp, str + offset);
-    char* result = strstr(temp, aString);
-    size_t position = -1;
+    char* result = strstr(str+offset, aString);
     if(result){
-        position = result - temp;
+        return (int)(result - str);
     }
-    delete[] temp;
-    return (int)(position + offset);
+    else{
+        return -1;
+    }
 }
 
 /* -------------- Extra Credit ----------------- */
 SFString operator+(const SFString& lhs, const SFString& rhs){
-    SFString newSFStr;
-    newSFStr.str = new char[strlen(lhs.str) + strlen(rhs.str) + 1];
-    strcpy(newSFStr.str, lhs.str);
-    strcat(newSFStr.str, rhs.str);
+    SFString newSFStr(lhs);
+    newSFStr += rhs;
     return newSFStr;
 }
 SFString operator+(const SFString& lhs, const char* rhs){
-    SFString newSFStr;
-    newSFStr.str = new char[strlen(lhs.str) + strlen(rhs) + 1];
-    strcpy(newSFStr.str, lhs.str);
-    strcat(newSFStr.str, rhs);
+    SFString newSFStr(lhs);
+    newSFStr += rhs;
     return newSFStr;
 }
 SFString operator+(const char* lhs, const SFString& rhs){
-    SFString newSFStr;
-    newSFStr.str = new char[strlen(lhs) + strlen(rhs.str) + 1];
-    strcpy(newSFStr.str, lhs);
-    strcat(newSFStr.str, rhs.str);
+    SFString newSFStr(lhs);
+    newSFStr += rhs;
     return newSFStr;
 }
